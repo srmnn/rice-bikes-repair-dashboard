@@ -25,7 +25,9 @@ async function getAllTransactions() {
 
   return rows.map((row) => ({
     transaction_id: row.transaction_id,
-    transaction_date: row.transaction_date,
+    transaction_date: row.transaction_date
+      ? row.transaction_date.toISOString().split("T")[0]
+      : null,
     total_cost: Number(row.total_cost),
     service: row.service,
     customer: {
