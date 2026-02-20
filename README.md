@@ -25,6 +25,7 @@ code .
 ```bash
 cd backend
 npm install
+npm install cors
 ```
 
 ### 3. Install Frontend Dependencies
