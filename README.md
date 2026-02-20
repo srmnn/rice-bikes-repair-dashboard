@@ -136,6 +136,16 @@ This gives the expected response as a list of all transactions:
 
 ---
 
+## Running Tests (Optional)
+In the backend terminal, enter the following:
+```bash
+cd backend
+npm test
+```
+This will run the automated test(s) for the backend API. Make sure you have installed all dependencies (npm install) before running tests.
+
+---
+
 ## Other Notes
 
 - PostgreSQL must be running locally.
