@@ -32,6 +32,7 @@ CREATE TABLE repair_transactions (
     customer_id INT NOT NULL,
     total_cost NUMERIC(10,2) NOT NULL,
     transaction_date DATE NOT NULL,
+    service TEXT NOT NULL DEFAULT 'General Repair',
     CONSTRAINT fk_bike
         FOREIGN KEY (bike_id)
         REFERENCES bikes(bike_id)
@@ -67,17 +68,17 @@ INSERT INTO bikes (make, model) VALUES
 -- Seed Repair Transactions (10 total)
 -- ============================================
 
-INSERT INTO repair_transactions (bike_id, customer_id, total_cost, transaction_date) VALUES
-(1, 1, 89.99, '2026-01-05'),
-(2, 2, 120.00, '2026-01-08'),
-(3, 3, 45.50, '2026-01-10'),
-(4, 4, 200.00, '2026-01-12'),
-(5, 5, 75.25, '2026-01-15'),
-(1, 1, 150.00, '2026-01-18'),
-(2, 3, 60.00, '2026-01-20'),
-(3, 2, 95.75, '2026-01-22'),
-(4, 5, 180.00, '2026-01-25'),
-(5, 4, 55.00, '2026-01-28');
+INSERT INTO repair_transactions (bike_id, customer_id, total_cost, transaction_date, service) VALUES
+(1, 1, 89.99, '2026-01-05', 'Tune-up'),
+(2, 2, 120.00, '2026-01-08', 'Brake Adjustment'),
+(3, 3, 45.50, '2026-01-10', 'Flat Tire Repair'),
+(4, 4, 200.00, '2026-01-12', 'Full Service'),
+(5, 5, 75.25, '2026-01-15', 'Chain Replacement'),
+(1, 1, 150.00, '2026-01-18', 'Wheel Alignment'),
+(2, 3, 60.00, '2026-01-20', 'Brake Adjustment'),
+(3, 2, 95.75, '2026-01-22', 'Tune-up'),
+(4, 5, 180.00, '2026-01-25', 'Full Service'),
+(5, 4, 55.00, '2026-01-28', 'Flat Tire Repair');
 
 -- ============================================
 -- Verification Query (Sorted by Date Desc)
@@ -87,6 +88,7 @@ SELECT
     rt.transaction_id,
     rt.transaction_date,
     rt.total_cost,
+    rt.service,
     c.first_name,
     c.last_name,
     b.make,

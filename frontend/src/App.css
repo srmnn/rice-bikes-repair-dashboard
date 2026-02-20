@@ -1,63 +1,81 @@
+/* frontend/src/App.css */
+
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #573f3b; /* Dark brown text */
+  background-color: #fdf8f3; /* Light warm background */
+  margin: 0;
+  padding: 2rem;
+}
+
+/* App container */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Page title */
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #f49a5a;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* frontend/src/App.css */
+/* Table styles */
 table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
+/* Table header */
+th {
+  background-color: #5697a7; /* muted green header */
+  color: #fdefed; /* dark brown text */
+  font-weight: bold;
+  padding: 12px;
   text-align: left;
 }
 
-th {
-  background-color: #f4f4f4;
+/* Table rows */
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
 }
 
-h1 {
-  margin-bottom: 16px;
+/* Alternating row colors for readability */
+tbody tr:nth-child(even) {
+  background-color: #f6f1eb; /* light beige row */
 }
 
+/* Hover effect on rows */
+tbody tr:hover {
+  background-color: #e3ded5; /* slightly darker beige on hover */
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  th {
+    position: sticky;
+    top: 0;
+    background-color: #6c9ea9;
+  }
+  td {
+    padding-left: 50%;
+    position: relative;
+  }
+  td::before {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    content: attr(data-label);
+  }
+}
