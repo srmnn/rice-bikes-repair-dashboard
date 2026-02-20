@@ -22,6 +22,7 @@ code .
 ```
 
 ### 2. Install Backend Dependencies
+In a new terminal:
 ```bash
 cd backend
 npm install
@@ -99,7 +100,7 @@ Now, you can open your browser and navigate to `http://localhost:5173`.
 ---
 
 ## Test API Endpoint
-Create a new terminal and type the following:
+Create a new terminal and enter the following:
 ```bash
 curl http://localhost:3000/api/transactions
 ```
@@ -129,7 +130,7 @@ This gives the expected response as a list of all transactions:
       "make": "Santa Cruz",
       "model": "Hightower"
     }
-  }] 
+  }, ...
   
 > If you don’t have jq installed, you can install it with brew install jq on macOS.
 
