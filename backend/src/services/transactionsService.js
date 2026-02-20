@@ -23,7 +23,6 @@ async function getAllTransactions() {
 
   const { rows } = await pool.query(query);
 
-  // Transform flat SQL rows into nested objects
   return rows.map((row) => ({
     transaction_id: row.transaction_id,
     transaction_date: row.transaction_date,
